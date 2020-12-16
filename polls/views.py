@@ -1,0 +1,45 @@
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+from django.contrib import messages
+
+
+# Create your views here.
+
+def home_views(request, *args, **kwargs):
+    my_context = {
+        "my_testText": "This is some text that I have",
+        "my_nums": [1, 2, 3, 4, 5, 6],
+        "my_boolean": True,
+        "my_testNum": 15
+    }
+    return render(request, "index.html", my_context)
+
+
+def home_tmplt_view(*args, **kwargs):
+    return HttpResponse("<h1> Hello World</h1>")
+
+
+def dashboard_view(request):
+    return render(request, "users/dashboard.html")
+
+
+def register(request):
+    if request.method == "GET":
+        return render(
+            request, "users/register.html",
+            {"form": UserCreationForm}
+        )
+    elif request.method == "POST":
+        form = UserCreationForm(request.POST)
+        form.error_messages
+        if form.is_valid():
+            print("Form is valid")
+            user = form.save()
+            login(request, user)
+            return render(request, "users/dashboard.html")
+        #print("Form is NOT valid")
+        messages.error(request, "Error")
+        return render(request, 'users/dashboard.html', {'form': form})
+
