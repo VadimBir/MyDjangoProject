@@ -11,4 +11,3 @@ In order to run:
 *python3 manage.py runserver*<br/>
 
 Password Manager App -> **http://127.0.0.1:8000/myapp/**<br/>
- **http://127.0.0.1:8000/hello/**<br/>
