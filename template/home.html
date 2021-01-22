@@ -11,12 +11,12 @@
 
         {% for password in object_list %}
             {% if user.is_authenticated %}
-                {% if user.id == password.authorName.id or user.username == "vasumAdmin" %}
+                {% if user.id == password.authorName.id %}
                     <li style="margin: 12pt;">
-                    {{ password.authorName }} || <a href="{% url 'password-info' password.pk %}"> {{ password.nameTag }} </a> => {{ password.passwordStr }}
-                    <p>User {{ user.id }}</p>
+                    <!-- {{ password.authorName }} || --> Name Tag: <a href="{% url 'password-info' password.pk %}"> {{ password.Name_Tag }} </a> &#8594; Password: {{ password.Password_String }}
+                    <!--<p>User {{ user.id }}</p>
                     <p>Auth {{ password.authorName.id }}</p>
-
+                    -->
 
 
                     <a href="{% url 'password_update' password.pk %}" class="btn btn-primary" style="padding: 2px;">UPDATE</a>

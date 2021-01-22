@@ -6,9 +6,9 @@ from django.urls import reverse
 
 class Password(models.Model):
     authorName = models.ForeignKey(User, on_delete=models.CASCADE, related_name='+', null=True) #temp NULL need to be the ones auth ed
-    nameTag = models.CharField(max_length=64)
-    passwordStr = models.CharField(max_length=64)
-    description = models.TextField(null=True, blank=True)
+    Name_Tag = models.CharField(max_length=64)
+    Password_String = models.CharField(max_length=64)
+    Description = models.TextField(null=True, blank=True)
 
 
     def __str__(self):
