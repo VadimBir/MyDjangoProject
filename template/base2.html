@@ -31,9 +31,10 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'password_add' %}">Add Password</a>
         </li>
-  <li  class="nav-item" >
+        <li  class="nav-item" >
           <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
         </li>
+        <li style="text-align: right;"> <a href="/">Personal Page</a></li>
         {% else %}
 
         <li class="nav-item">
@@ -42,10 +43,11 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'login' %}">Login</a>
         </li>
+        
         {% endif %}
 
       </ul>
-     
+      <p align="center"> <a href="/">Personal Main Page</a></p>
     </div>
 </nav>
 
